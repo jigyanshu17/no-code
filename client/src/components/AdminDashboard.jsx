@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Optional if you want routing
+import { Link } from "react-router-dom";
 
 const AdminDashboard = () => {
   const [forms, setForms] = useState([]);
@@ -39,7 +39,15 @@ const AdminDashboard = () => {
               key={form._id}
               className="flex justify-between items-center p-4 bg-white shadow-md rounded"
             >
-              <h3 className="text-lg">{form.title}</h3>
+              <div>
+                <h3 className="text-lg font-medium">{form.title}</h3>
+                <Link
+                  to={`/form/${form._id}`} // Dynamic link to fill the form
+                  className="text-blue-600 underline mt-2 inline-block"
+                >
+                  Fill Form
+                </Link>
+              </div>
               <div>
                 <button
                   onClick={() => deleteForm(form._id)}
@@ -48,7 +56,7 @@ const AdminDashboard = () => {
                   Delete
                 </button>
                 <Link
-                  to={`/edit-form/${form._id}`} // This will be for editing if needed
+                  to={`/edit-form/${form._id}`} // Link to edit form
                   className="px-4 py-2 bg-blue-600 text-white rounded"
                 >
                   Edit

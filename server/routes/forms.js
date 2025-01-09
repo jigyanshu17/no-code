@@ -18,11 +18,13 @@ router.post("/", createForm);
 // Delete form
 router.delete("/:id", deleteForm);
 
-// Update form (optional for editing)
-router.put("/:id", updateForm);
+// Route to update a form by ID
+router.put("/forms/:id", updateForm);
 
 // Get form by ID (for users to fill it out)
 router.get("/:id", getFormById);
+
+
 
 
 export default router;

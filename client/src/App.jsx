@@ -1,8 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import FormBuilder from "./components/FormBuilder/FormBuilder"; // Form Builder Component
-import AdminDashboard from "./components/AdminDashboard"; // Admin Dashboard for managing forms
-import FormRenderer from "./components/FormRenderer"; // Form Renderer for filling out forms
+import FormBuilder from "./components/FormBuilder/FormBuilder";
+import AdminDashboard from "./components/AdminDashboard";
+import FormRenderer from "./components/FormRenderer";
+import EditForm from "./components/EditForm";
+import FormList from "./components/FormList";
 import "./App.css";
 
 function App() {
@@ -31,7 +33,7 @@ function App() {
               Manage Forms
             </Link>
             <Link
-              to="/form/1" // Example form ID for rendering, replace with actual form ID later
+              to="/form-list"
               className="px-2 py-1 bg-blue-500 hover:bg-blue-700 rounded"
             >
               Fill Form
@@ -58,6 +60,8 @@ function App() {
             <Route path="/form-builder" element={<FormBuilder />} />
             <Route path="/admin-dashboard" element={<AdminDashboard />} />
             <Route path="/form/:id" element={<FormRenderer />} />
+            <Route path="/edit-form/:id" element={<EditForm />} />
+            <Route path="/form-list" element={<FormList />} />
           </Routes>
         </main>
       </div>

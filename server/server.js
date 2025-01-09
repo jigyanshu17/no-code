@@ -6,7 +6,7 @@ import connectDB from "./config/db.js"; // Import the database connection functi
 
 // Import Routes
 import formRoutes from "./routes/forms.js";
-// import responseRoutes from "./routes/responses.js";
+import responseRoutes from "./routes/responseRoutes.js";
 
 dotenv.config();
 
@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
 app.use("/api/forms", formRoutes); // For managing forms
-// app.use("/api/responses", responseRoutes); // For managing form responses
+app.use("/api", responseRoutes); // Adjusted for response routes
 
 // Health Check Route
 app.get("/", (req, res) => {
